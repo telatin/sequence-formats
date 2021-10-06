@@ -1,0 +1,21 @@
+Bootstrap: docker
+From: ubuntu:focal
+
+
+%environment
+  PS1="[perl] $PS1"
+  LANG=en_GB.UTF-8  
+  LANGUAGE=en_GB:en  
+  LC_ALL=en_GB.UTF-8
+
+%post
+
+   apt update && apt install -y build-essential wget curl nano  zip cpanminus language-pack-en libxml-libxml-perl libxml2 libxml2-dev
+   cpanm FASTX::Reader
+   cpanm BioX::Seq::Stream
+   cpanm Bio::SeqReader
+   cpanm FAST::Bio::SeqIO
+   cpanm Bio::SeqIO
+
+%runscript
+    exec perl "$@"
