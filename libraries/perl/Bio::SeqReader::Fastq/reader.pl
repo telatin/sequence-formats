@@ -16,11 +16,8 @@ my $max_length = 0;
 
 for my $filename (@ARGV) {
     $count_files++;
-
     my $fh;
     my $reader;
-
-
     if ($filename =~ /\.gz$/) {
         $fh =  new IO::Uncompress::AnyUncompress( $filename );
     } else {
@@ -34,8 +31,7 @@ for my $filename (@ARGV) {
     }
 
     my $count_seqs = 0;
-    my $count_bases = 0;
-    
+    my $count_bases = 0;  
     while ( my $s = $reader->next() ) {
         $count_seqs++;
         $count_bases += length($s->seq);
@@ -44,17 +40,4 @@ for my $filename (@ARGV) {
     $tot_seqs += $count_seqs;
     $tot_bases += $count_bases;
 }
-
 say "Files=$count_files; Sequences=$tot_seqs; Bases=$tot_bases; Max=$max_length; From=$from";
-# my $so = new Bio::SeqReader::FastqRecord(
-#                 header1     => 'R_12345 read info ...',
-#                 seqtext     => 'ACGTACGT',
-#                 header2     => '',
-#                 qualtext    => 'A@AA?#??'
-#                 );
-# Constructor with initial values
-# my $so = new Bio::SeqReader::FastaRecord(
-#                 display_id  => 'R_12345',
-#                 description => 'Predicted kinase gene',
-#                 seqtext     => 'ACGTACGT',
-#                 );
