@@ -3,13 +3,13 @@
 
 The "FASTX" columns refers to the seamless parsing of both FASTA and FASTQ files.
 
-| Library name                                                               | Last Updated | Fastx |
-|:---------------------------------------------------------------------------|:-------------|:------|
-| [BioPerl Bio::SeqIO](https://metacpan.org/pod/Bio::SeqIO)                  |  2019* | -    |
-| [BioX::Seq](https://metacpan.org/pod/BioX::Seq)                            |  2021  | ✅    |
-| [FASTX::Reader](https://metacpan.org/pod/FASTX::Reader)                    |  2021  | ✅    | 
-| [FAST::Bio::SeqIO::fastq](https://metacpan.org/pod/FAST::Bio::SeqIO::fastq)|  2015  |  -    |
-| [Bio::SeqReader](https://metacpan.org/pod/Bio::SeqReader)                  |  2012  |  -    | 
+| Library name                                                                | Last Updated | Fastx |
+| :-------------------------------------------------------------------------- | :----------- | :---- |
+| [BioPerl Bio::SeqIO](https://metacpan.org/pod/Bio::SeqIO)                   | 2019*        | -     |
+| [BioX::Seq](https://metacpan.org/pod/BioX::Seq)                             | 2021         | ✅     |
+| [FASTX::Reader](https://metacpan.org/pod/FASTX::Reader)                     | 2021         | ✅     |
+| [FAST::Bio::SeqIO::fastq](https://metacpan.org/pod/FAST::Bio::SeqIO::fastq) | 2015         | -     |
+| [Bio::SeqReader](https://metacpan.org/pod/Bio::SeqReader)                   | 2012         | -     |
 
 * The BioPerl project is active and constantly updated, we reported the last commit in the SeqIO modules specifically.
 
@@ -63,20 +63,20 @@ of a set of input files, in FASTA or FASTQ format, gzipped or not.
 A benchmark tested the performance using four files, in FASTQ and FASTA format, Gzipped or not,
 generated with `utils/generate-random-fastx.py`:
 
-│ File          │ #Seq │ Total bp │ Avg    │ N50  │ N75  │ N90  │ auN      │ Min │ Max  │
-|:--------------|-----:|---------:|-------:|-----:|-----:|-----:|---------:|----:|-----:|
-│ random.fa     │ 1000 │ 5040213  │ 5040.2 │ 6883 │ 4908 │ 3151 │ 6306.366 │ 63  │ 9999 │
-│ random.fa.gz  │ 750  │ 3842141  │ 5122.9 │ 6870 │ 4988 │ 3263 │ 6401.693 │ 63  │ 9999 │
-│ random.fq     │ 1000 │ 5290012  │ 5290.0 │ 7334 │ 5134 │ 3205 │ 6443.091 │ 84  │ 9998 │
-│ random.fq.gz  │ 750  │ 3849682  │ 5132.9 │ 7173 │ 4987 │ 3038 │ 6406.062 │ 84  │ 9997 │
+│ File            │ Seq    │ Total bp   │ Avg      │ N50    │ N75   │ N90    │ auN        │ Min   │ Max    │
+| :-------------- | -----: | ---------: | -------: | -----: |-----: | -----: | ---------: | ----: | -----: |
+│ random.fa       │ 1000   │ 5040213    │ 5040.2   │ 6883   │ 4908  │ 3151   │ 6306.366   │ 63    │ 9999   │
+│ random.fa.gz    │ 750    │ 3842141    │ 5122.9   │ 6870   │ 4988  │ 3263   │ 6401.693   │ 63    │ 9999   │
+│ random.fq       │ 1000   │ 5290012    │ 5290.0   │ 7334   │ 5134  │ 3205   │ 6443.091   │ 84    │ 9998   │
+│ random.fq.gz    │ 750    │ 3849682    │ 5132.9   │ 7173   │ 4987  │ 3038   │ 6406.062   │ 84    │ 9997   │
 
 
 The results:
 
-| Command | Mean [s] | Min [s] | Max [s] | Relative | Multi format handling |
-|:---|---:|---:|---:|---:|:---|
-| `BioX::Seq` | 0.197 ± 0.002 | 0.195 | 0.201 | 1.00 | Simpler |
-| `FASTX::Reader` | 0.244 ± 0.003 | 0.239 | 0.250 | 1.24 ± 0.02 | Simpler |
-| `Bio::SeqReader::Fastq` | 0.380 ± 0.005 | 0.374 | 0.390 | 1.93 ± 0.03 | Longer |
-| `BioPerl` | 6.087 ± 0.115 | 5.874 | 6.254 | 30.92 ± 0.66 | Longer |
-| `FAST::Bio::SeqIO::fastq` | 6.853 ± 0.344 | 6.306 | 7.566 | 34.81 ± 1.78 | Longer |
+| Command                   |      Mean [s] | Min [s] | Max [s] |     Relative | Multi format handling |
+| :------------------------ | ------------: | ------: | ------: | -----------: | :-------------------- |
+| `BioX::Seq`               | 0.197 ± 0.002 |   0.195 |   0.201 |         1.00 | Simpler               |
+| `FASTX::Reader`           | 0.244 ± 0.003 |   0.239 |   0.250 |  1.24 ± 0.02 | Simpler               |
+| `Bio::SeqReader::Fastq`   | 0.380 ± 0.005 |   0.374 |   0.390 |  1.93 ± 0.03 | Longer                |
+| `BioPerl`                 | 6.087 ± 0.115 |   5.874 |   6.254 | 30.92 ± 0.66 | Longer                |
+| `FAST::Bio::SeqIO::fastq` | 6.853 ± 0.344 |   6.306 |   7.566 | 34.81 ± 1.78 | Longer                |
