@@ -1,20 +1,24 @@
 # Perl libraries
 ## Libraries
 
-| Library name                                                               | Last Updated | Tests |
+The "FASTX" columns refers to the seamless parsing of both FASTA and FASTQ files.
+
+| Library name                                                               | Last Updated | Fastx |
 |:---------------------------------------------------------------------------|:-------------|:------|
-| [BioPerl Bio::SeqIO](https://metacpan.org/pod/Bio::SeqIO)                  |  2019* |
-| [BioX::Seq](https://metacpan.org/pod/BioX::Seq)                            |  2021  |
-| [FASTX::Reader](https://metacpan.org/pod/FASTX::Reader)                    |  2021  | 
-| [FAST::Bio::SeqIO::fastq](https://metacpan.org/pod/FAST::Bio::SeqIO::fastq)|  2015  | 
-| [Bio::SeqReader](https://metacpan.org/pod/Bio::SeqReader)                  |  2012  | John A. Crow | no | 
+| [BioPerl Bio::SeqIO](https://metacpan.org/pod/Bio::SeqIO)                  |  2019* | -    |
+| [BioX::Seq](https://metacpan.org/pod/BioX::Seq)                            |  2021  | ✅    |
+| [FASTX::Reader](https://metacpan.org/pod/FASTX::Reader)                    |  2021  | ✅    | 
+| [FAST::Bio::SeqIO::fastq](https://metacpan.org/pod/FAST::Bio::SeqIO::fastq)|  2015  |  -    |
+| [Bio::SeqReader](https://metacpan.org/pod/Bio::SeqReader)                  |  2012  |  -    | 
 
 * The BioPerl project is active and constantly updated, we reported the last commit in the SeqIO modules specifically.
 
 #### BioPerl
 
 * **Summary**: BioPerl is a well-known and comprehensive set of modules for bioinformatics, that was arguably the world-leading
-effort in bioinformatics libraries before the advent of NGS. See [bioperl.org](https://bioperl.org/)
+effort in bioinformatics libraries before the advent of NGS. See [bioperl.org](https://bioperl.org/). The wide adoption
+makes it a recommended distribution for bioinformatics projects, but it's complex dependency tree and occasional difficulties
+in the installation (usually due to compiled components) can be and obstacle. If FASTA/FASTQ parsing is the only task required, other libraries can be a faster, lighter and easier to install solution.
 * **Publication**: [Stajich et al. 2002 - The Bioperl toolkit: Perl modules for the life sciences](http://dx.doi.org/10.1101/gr.361602)
 * **Authors/maintainers**: The BioPerl consortium; latest commits on FASTA and FASTQ modules by David Miguel Susano Pinto and Lee Katz
 * **Tests**: comprehensive test suite 
@@ -22,7 +26,7 @@ effort in bioinformatics libraries before the advent of NGS. See [bioperl.org](h
 
 #### BioX::Seq
 
-* **Summary**: A lightweight object-oriented FASTA/FASTQ parser.
+* **Summary**: A lightweight object-oriented FASTA/FASTQ parser. Does not depend on non core libraries and provides the fastest parsing, seamlessly supporting FASTA and FASTQ files, compressed or not. It's the ideal choice when FASTX parsing is the only request.
 * **Publication**: Cite repository [https://github.com/jvolkening/p5-BioX-Seq](https://github.com/jvolkening/p5-BioX-Seq)
 * **Authors/maintainers**: Jeremy Volkening
 * **Test coverage**: 95.68% Coverage
@@ -31,7 +35,7 @@ effort in bioinformatics libraries before the advent of NGS. See [bioperl.org](h
 #### FASTX::Reader
 
 * **Summary**: Lightweight module implementing Heng Li's 
-[FASTA/FASTQ parser](https://github.com/lh3/readfq/blob/master/readfq.pl)
+[FASTA/FASTQ parser](https://github.com/lh3/readfq/blob/master/readfq.pl). The parser returns scalars (not OO). It's a fast implementation.
 * **Publication**: [Telatin et al. 2021 - SeqFu: A Suite of Utilities for the Robust and Reproducible Manipulation of Sequence Files](https://www.mdpi.com/2306-5354/8/5/59)
 * **Authors/maintainers**: Andrea Telatin
 * **Test coverage**: 71.87% Coverage
@@ -45,7 +49,7 @@ effort in bioinformatics libraries before the advent of NGS. See [bioperl.org](h
 
 #### Bio::SeqReader
 
-* **Summary**: Provides separate FASTA and FASTQ parser, supporting filehandles
+* **Summary**: Provides separate FASTA and FASTQ parser.
 * **Publication**: Cite repository [https://metacpan.org/pod/Bio::SeqReader](https://metacpan.org/pod/Bio::SeqReader)
 * **Authors/maintainers**: John A. Crow
 * **Test coverage**: Class is tested, parser is not
