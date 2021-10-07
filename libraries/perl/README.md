@@ -63,12 +63,12 @@ of a set of input files, in FASTA or FASTQ format, gzipped or not.
 A benchmark tested the performance using four files, in FASTQ and FASTA format, Gzipped or not,
 generated with `utils/generate-random-fastx.py`:
 
-│ File         │ #Seq │ Total bp │ Avg    │ N50  │ N75  │ N90  │ auN      │ Min │ Max  │
-|:-------------|-----:|---------:|-------:|-----:|-----:|-----:|---------:|----:|-----:|
-│ random.fa    │ 1000 │ 5040213  │ 5040.2 │ 6883 │ 4908 │ 3151 │ 6306.366 │ 63  │ 9999 │
-│ random.fa.gz │ 750  │ 3842141  │ 5122.9 │ 6870 │ 4988 │ 3263 │ 6401.693 │ 63  │ 9999 │
-│ random.fq    │ 1000 │ 5290012  │ 5290.0 │ 7334 │ 5134 │ 3205 │ 6443.091 │ 84  │ 9998 │
-│ random.fq.gz │ 750  │ 3849682  │ 5132.9 │ 7173 │ 4987 │ 3038 │ 6406.062 │ 84  │ 9997 │
+│ File          │ #Seq │ Total bp │ Avg    │ N50  │ N75  │ N90  │ auN      │ Min │ Max  │
+|:--------------|-----:|---------:|-------:|-----:|-----:|-----:|---------:|----:|-----:|
+│ random.fa     │ 1000 │ 5040213  │ 5040.2 │ 6883 │ 4908 │ 3151 │ 6306.366 │ 63  │ 9999 │
+│ random.fa.gz  │ 750  │ 3842141  │ 5122.9 │ 6870 │ 4988 │ 3263 │ 6401.693 │ 63  │ 9999 │
+│ random.fq     │ 1000 │ 5290012  │ 5290.0 │ 7334 │ 5134 │ 3205 │ 6443.091 │ 84  │ 9998 │
+│ random.fq.gz  │ 750  │ 3849682  │ 5132.9 │ 7173 │ 4987 │ 3038 │ 6406.062 │ 84  │ 9997 │
 
 
 The results:
